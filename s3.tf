@@ -7,23 +7,23 @@ resource "aws_s3_bucket" "bucket1" {
   }
 }
 
-resource "aws_s3_bucket_lifecycle" "lifecycle" {
-  bucket = aws_s3_bucket.gogreens3.bucket
+# resource "aws_s3_bucket_lifecycle" "lifecycle" {
+#   bucket = aws_s3_bucket.bucket1.id
 
-  rule {
-    id      = "move-to-glacier"
-    prefix  = ""
-    enabled = true
+#   rule {
+#     id      = "move-to-glacier"
+#     prefix  = ""
+#     enabled = true
 
-    transition {
-      days          = 90 # Transition to Glacier after 3 months (90 days)
-      storage_class = "GLACIER"
-    }
+#     transition {
+#       days          = 90 
+#       storage_class = "GLACIER"
+#     }
 
-    expiration {
-      days = 1825 # Delete from Glacier after 5 years (1825 days)
-    }
-  }
-}
+#     expiration {
+#       days = 1825 
+#     }
+#   }
+# }
 
 
