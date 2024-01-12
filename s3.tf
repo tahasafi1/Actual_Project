@@ -7,23 +7,23 @@ resource "aws_s3_bucket" "bucket1" {
   }
 }
 
-# resource "aws_s3_bucket_lifecycle" "lifecycle" {
-#   bucket = aws_s3_bucket.bucket1.id
+resource "aws_s3_bucket_lifecycle" "lifecycle" {
+  bucket = aws_s3_bucket.bucket1.bucket
 
-#   rule {
-#     id      = "move-to-glacier"
-#     prefix  = ""
-#     enabled = true
+  rule {
+    id      = "move-to-glacier"
+    prefix  = "GoGreen"
+    enabled = true
 
-#     transition {
-#       days          = 90 
-#       storage_class = "GLACIER"
-#     }
+    transition {
+      days          = 90 
+      storage_class = "GLACIER"
+    }
 
-#     expiration {
-#       days = 1825 
-#     }
-#   }
-# }
+    expiration {
+      days = 1825 
+    }
+  }
+}
 
 
