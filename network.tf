@@ -92,5 +92,5 @@ resource "aws_route_table" "private-nat-routetable" {
 resource "aws_route_table_association" "private-routetable-assoc" {
   for_each       = var.private-nat-routetable-assoc
   subnet_id      = aws_subnet.private_subnet[each.value.subnet_id].id
-  route_table_id = aws_route_table.private-routetable[each.value.route_table_id].id
+  route_table_id = aws_route_table.private-nat-routetable[each.value.route_table_id].id
 }

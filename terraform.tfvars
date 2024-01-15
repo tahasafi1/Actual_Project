@@ -10,6 +10,24 @@ public_subnets = {
   }
 }
 
+private_subnets = {
+  private_sub_app_1 = {
+    cidr_block        = "172.16.2.0/24"
+    availability_zone = "us-west-2a"
+  },
+  privat_sub_app_2 = {
+    cidr_block        = "172.16.3.0/24"
+    availability_zone = "us-west-2b"
+  },
+  private_sub_database_1 = {
+    cidr_block        = "172.16.4.0/24"
+    availability_zone = "us-west-2a"
+  },
+  private_sub_database_2 = {
+    cidr_block        = "172.16.5.0/24"
+    availability_zone = "us-west-2b"
+  }
+}
 
 
 #nat route table association

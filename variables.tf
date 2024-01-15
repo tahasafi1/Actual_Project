@@ -72,7 +72,7 @@ variable "ec2-instance" {
 
 variable "myip" {
   type = string
-  default = ""
+  default = "70.190.92.126"
 }
 
 

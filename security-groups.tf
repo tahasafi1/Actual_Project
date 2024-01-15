@@ -1,14 +1,16 @@
 module "bastion_security_group" {
-  source  = "./modules/security-groups"
+  source  = "app.terraform.io/024_2023-summer-cloud-t/security-groups/aws"
+  version = "6.0.0"
   vpc_id  = aws_vpc.vpc.id
   security_groups = {
     "bastion_sg" : {
       description = "ALB SG"
       ingress_rules = [
-        {
+        { 
+          from_port   = 22
           to_port     = 22
           protocol    = "tcp"
-          cidr_blocks = [var.myip]
+          cidr_blocks = ["0.0.0.0/0"]
         }
       ]
       egress_rules = [
@@ -24,7 +26,8 @@ module "bastion_security_group" {
 }
 
 module "web_security_group" {
-  source  = "./modules/security-groups"
+  source  = "app.terraform.io/024_2023-summer-cloud-t/security-groups/aws"
+  version = "6.0.0"
   vpc_id  = aws_vpc.vpc.id
   security_groups = {
     "web_sg" : {
@@ -46,7 +49,7 @@ module "web_security_group" {
           from_port   = 22
           to_port     = 22
           protocol    = "tcp"
-          cidr_blocks = [module.bastion_security_group_security_group.security_group_id["bastion_sg"]]
+          cidr_blocks = [module.bastion_security_group.security_group_id["bastion_sg"]]
         }
       ]
       egress_rules = [
@@ -62,7 +65,8 @@ module "web_security_group" {
 }
 
 module "app_security_group" {
-  source  = "./modules/security-groups"
+  source  = "app.terraform.io/024_2023-summer-cloud-t/security-groups/aws"
+  version = "6.0.0"
   vpc_id  = aws_vpc.vpc.id
   security_groups = {
     "app_sg" : {
@@ -113,7 +117,8 @@ module "app_security_group" {
 }
 
 module "db_security_group" {
-  source  = "./modules/security-groups"
+  source  = "app.terraform.io/024_2023-summer-cloud-t/security-groups/aws"
+  version = "6.0.0"
   vpc_id  = aws_vpc.vpc.id
   security_groups = {
     "db_sg" : {

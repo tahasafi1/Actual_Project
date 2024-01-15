@@ -16,13 +16,12 @@ resource "aws_s3_bucket_public_access_block" "bucket_acces" {
   restrict_public_buckets = true
 }
 
-resource "aws_s3_bucket_lifecycle" "lifecycle_rule" {
+resource "aws_s3_bucket_lifecycle_configuration" "lifecycle_rule" {
   bucket = aws_s3_bucket.bucket1.id
 
   rule {
     id      = "move-to-glacier"
     prefix  = "GoGreen"
-    enabled = true
 
     transition {
       days          = 90 
@@ -32,6 +31,8 @@ resource "aws_s3_bucket_lifecycle" "lifecycle_rule" {
     expiration {
       days = 1825 
     }
+
+    status = "Enabled"
   }
 }
 
