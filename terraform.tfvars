@@ -194,3 +194,37 @@ private-nat-routetable-assoc = {
 #   }
 # }
 
+# iam_user = {
+#   sysadmin1 = {
+#     name = "sysadmin1"
+#     tags = { creator = "sysadmin1"
+#   } },
+#   sysadmin2 = {
+#     name = "sysadmin2"
+#     tags = { creator = "sysadmin2"
+#   } }
+#   monitor1 = {
+#     name = "monitor1"
+#     tags = { creator = "monitor1"
+#   } }
+#   monitor2 = {
+#     name = "monitor2"
+#     tags = { creator = "monitor2"
+#   } }
+#   monitor3 = {
+#     name = "monitor3"
+#     tags = { creator = "monitor3"
+#   } }
+#   monitor4 = {
+#     name = "monitor4"
+#     tags = { creator = "monitor4"
+#   } }
+#   dbadmin1 = {
+#     name = "dbadmin1"
+#     tags = { creator = "dbadmin1"
+#   } }
+#   dbadmin2 = {
+#     name = "dbadmin2"
+#     tags = { creator = "dbadmin2"
+#   } }
+# }

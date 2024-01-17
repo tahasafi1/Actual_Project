@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "bucket1" {
-  bucket = "GoGreens3TSSMN4ff"
+  # bucket = "GoGreenspotityousee121"
   acl    = "private"
 
   tags = {

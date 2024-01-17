@@ -50,6 +50,10 @@ resource "aws_nat_gateway" "nat-gw" {
   for_each      = var.public_subnets
   subnet_id     = aws_subnet.public_subnet[each.key].id
   allocation_id = aws_eip.nat[each.key].id
+
+  tags = {
+    Name = "${var.prefix}-nat-gw"
+  }
 }
 
 resource "aws_eip" "nat" {
